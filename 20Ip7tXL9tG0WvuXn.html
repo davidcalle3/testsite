@@ -1,0 +1,264 @@
+<html><head><base href="https://example.com/projets/rythme-de-la-nature">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rythme de la Nature - Portfolio de Game Designer</title>
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto', sans-serif;
+        background-color: #121212;
+        color: #e0e0e0;
+    }
+    header {
+        background-color: #1a1a1a;
+        padding: 20px;
+        text-align: center;
+    }
+    nav {
+        display: flex;
+        justify-content: center;
+        background-color: #2a2a2a;
+        padding: 10px;
+    }
+    nav a {
+        color: #e0e0e0;
+        text-decoration: none;
+        margin: 0 15px;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+    nav a:hover {
+        color: #bb86fc;
+    }
+    main {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    h1, h2 {
+        color: #bb86fc;
+    }
+    .project-details {
+        background-color: #1e1e1e;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+    .project-image {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin-bottom: 20px;
+    }
+    .feature-list {
+        list-style-type: none;
+        padding: 0;
+    }
+    .feature-list li {
+        margin-bottom: 10px;
+        padding-left: 25px;
+        position: relative;
+    }
+    .feature-list li::before {
+        content: '🎵';
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+    .video-container {
+        position: relative;
+        width: 100%;
+        padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+        margin-bottom: 20px;
+    }
+    .video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+        border-radius: 8px;
+    }
+    footer {
+        text-align: center;
+        padding: 20px;
+        background-color: #1a1a1a;
+        margin-top: 40px;
+    }
+    .interactive-demo {
+        background-color: #2a2a2a;
+        border-radius: 8px;
+        padding: 20px;
+        margin-top: 20px;
+        text-align: center;
+    }
+    .demo-button {
+        background-color: #bb86fc;
+        color: #121212;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    .demo-button:hover {
+        background-color: #03dac6;
+    }
+    #demo-canvas {
+        width: 100%;
+        height: 200px;
+        background-color: #1e1e1e;
+        border-radius: 8px;
+        margin-top: 20px;
+    }
+</style>
+</head>
+<body>
+    <header>
+        <h1>Rythme de la Nature</h1>
+    </header>
+    <nav>
+        <a href="https://example.com/">Accueil</a>
+        <a href="https://example.com/projets">Projets</a>
+        <a href="https://example.com/projets/rythme-de-la-nature">Rythme de la Nature</a>
+    </nav>
+    <main>
+        <div class="project-details">
+            <img class="project-image" src="https://example.com/images/rythme-de-la-nature-banner.jpg" alt="Bannière du jeu Rythme de la Nature montrant un paysage luxuriant réagissant à la musique" width="800" height="400">
+            <h2>À propos du projet</h2>
+            <p>Rythme de la Nature est un jeu de rythme et d'exploration unique où la musique influence directement l'environnement. En tant que game designer, j'ai créé un monde où chaque action du joueur contribue à une symphonie interactive, transformant le paysage et révélant de nouveaux secrets.</p>
+            
+            <h3>Caractéristiques principales</h3>
+            <ul class="feature-list">
+                <li>Système de génération musicale procédurale qui crée une bande-son unique à chaque partie</li>
+                <li>Environnement dynamique réagissant en temps réel aux inputs musicaux des joueurs</li>
+                <li>Mécaniques de jeu basées sur le rythme, encourageant les joueurs à "jouer" avec le monde</li>
+                <li>Design sonore immersif utilisant des sons naturels pour créer une expérience auditive riche</li>
+                <li>Progression basée sur la découverte, où de nouvelles zones sont débloquées par l'harmonie musicale</li>
+            </ul>
+
+            <h3>Vidéo de gameplay</h3>
+            <div class="video-container">
+                <iframe src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+
+            <h3>Défis de conception</h3>
+            <p>L'un des plus grands défis dans la conception de Rythme de la Nature était de créer un système qui soit à la fois musicalement cohérent et réactif aux actions du joueur. Nous avons développé un algorithme de composition dynamique qui ajuste constamment la musique en fonction des mouvements et des interactions du joueur, tout en maintenant une structure musicale agréable.</p>
+
+            <p>Un autre défi était de concevoir des puzzles et des zones d'exploration qui soient intrinsèquement liés à la musique, sans pour autant aliéner les joueurs qui pourraient avoir moins d'expérience musicale. Nous avons résolu ce problème en créant un système de feedback visuel intuitif qui guide subtilement les joueurs vers les bonnes notes et rythmes.</p>
+
+            <h3>Impact et réception</h3>
+            <p>Depuis son lancement, Rythme de la Nature a reçu des critiques élogieuses pour son approche innovante du genre des jeux musicaux. Il a été nominé pour plusieurs prix d'innovation en game design et a été salué pour son accessibilité et sa capacité à créer une expérience méditative et apaisante.</p>
+
+            <div class="interactive-demo">
+                <h3>Démo interactive</h3>
+                <p>Essayez une version simplifiée du système musical de Rythme de la Nature :</p>
+                <button id="play-demo" class="demo-button">Jouer la démo</button>
+                <canvas id="demo-canvas"></canvas>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2023 Portfolio de Game Designer. Tous droits réservés.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.26/Tone.js"></script>
+    <script>
+        const playButton = document.getElementById('play-demo');
+        const canvas = document.getElementById('demo-canvas');
+        const ctx = canvas.getContext('2d');
+
+        let isPlaying = false;
+        let synth;
+        let particles = [];
+
+        function setupAudio() {
+            synth = new Tone.PolySynth(Tone.Synth).toDestination();
+            Tone.Transport.bpm.value = 120;
+        }
+
+        function playNote(note) {
+            synth.triggerAttackRelease(note, "8n");
+            createParticle(note);
+        }
+
+        function createParticle(note) {
+            const hue = Tone.Frequency(note).toMidi() % 12 * 30;
+            particles.push({
+                x: Math.random() * canvas.width,
+                y: canvas.height,
+                radius: Math.random() * 20 + 10,
+                color: `hsl(${hue}, 100%, 50%)`,
+                velocity: Math.random() * 2 + 1
+            });
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach((particle, index) => {
+                particle.y -= particle.velocity;
+                particle.radius *= 0.99;
+
+                ctx.beginPath();
+                ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
+                ctx.fillStyle = particle.color;
+                ctx.fill();
+
+                if (particle.radius < 0.5) {
+                    particles.splice(index, 1);
+                }
+            });
+
+            if (isPlaying) {
+                requestAnimationFrame(animateParticles);
+            }
+        }
+
+        function startDemo() {
+            if (isPlaying) return;
+            isPlaying = true;
+            Tone.start();
+            setupAudio();
+
+            const notes = ['C4', 'E4', 'G4', 'B4', 'D5'];
+            let index = 0;
+
+            Tone.Transport.scheduleRepeat((time) => {
+                playNote(notes[index]);
+                index = (index + 1) % notes.length;
+            }, "4n");
+
+            Tone.Transport.start();
+            animateParticles();
+        }
+
+        function stopDemo() {
+            isPlaying = false;
+            Tone.Transport.stop();
+            synth.releaseAll();
+        }
+
+        playButton.addEventListener('click', () => {
+            if (!isPlaying) {
+                startDemo();
+                playButton.textContent = 'Arrêter la démo';
+            } else {
+                stopDemo();
+                playButton.textContent = 'Jouer la démo';
+            }
+        });
+
+        // Set canvas size
+        function resizeCanvas() {
+            canvas.width = canvas.clientWidth;
+            canvas.height = canvas.clientHeight;
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+    </script>
+</body>
+</html>
