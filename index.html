@@ -137,6 +137,7 @@
     <nav>
         <a href="#" data-page="home" class="nav-link active">Accueil</a>
         <a href="#" data-page="projects" class="nav-link">Projets</a>
+        <a href="#" data-page="projects-2" class="nav-link">Projets 2</a>
     </nav>
     <main id="main-content">
         <section id="home" class="page active">
@@ -202,10 +203,71 @@
                 </div>
             </div>
         </section>
-
-        <section id="project-details" class="page">
-            <!-- Le contenu sera chargé dynamiquement ici -->
+        
+                <section id="projects-2" class="page">
+            <h2>Mes Projets 2</h2>
+            <div class="projects-list">
+                <div class="project-card">
+                    <img src="https://example.com/images/rythme-de-la-nature.jpg" alt="Capture d'écran du jeu Rythme de la Nature montrant un paysage vibrant et musical" class="project-image" width="760" height="200">
+                    <h3>Rythme de la Nature</h3>
+                    <p>Un jeu de rythme et d'exploration où la musique façonne l'environnement.</p>
+                    <a href="#" data-page="project-rythme-de-la-nature" class="cta-button">En savoir plus</a>
+                </div>
+                <div class="project-card">
+                    <img src="https://example.com/images/cyber-quest.jpg" alt="Image futuriste du jeu Cyber Quest avec des néons et des gratte-ciels" class="project-image" width="760" height="200">
+                    <h3>Cyber Quest</h3>
+                    <p>Un RPG cyberpunk où les choix des joueurs influencent profondément l'histoire et le gameplay.</p>
+                    <a href="#" data-page="project-cyber-quest" class="cta-button">En savoir plus</a>
+                </div>
+                <div class="project-card">
+                    <img src="https://example.com/images/eco-warriors.jpg" alt="Illustration colorée du jeu Eco Warriors avec des personnages et des éléments naturels" class="project-image" width="760" height="200">
+                    <h3>Eco Warriors</h3>
+                    <p>Un jeu éducatif sur l'écologie et la protection de l'environnement.</p>
+                    <a href="#" data-page="project-eco-warriors" class="cta-button">En savoir plus</a>
+                </div>
+            </div>
         </section>
+
+        <section id="project-rythme-de-la-nature" class="page">
+            <h2>Rythme de la Nature</h2>
+            <img src="https://example.com/images/rythme-de-la-nature.jpg" alt="Capture d'écran du jeu Rythme de la Nature" class="project-image" width="760" height="200">
+            <div class="project-details">
+                <p>Rythme de la Nature est un jeu de rythme et d'exploration unique où la musique et l'environnement sont intimement liés. Les joueurs parcourent un monde vibrant et dynamique, créant leur propre symphonie en interagissant avec les éléments qui les entourent.</p>
+                <h3>Caractéristiques principales :</h3>
+                <ul>
+                    <li>Système de jeu innovant mêlant rythme et exploration</li>
+                    <li>Environnements générés procéduralement réagissant à la musique</li>
+                    <li>Composition musicale interactive permettant aux joueurs de créer leurs propres mélodies</li>
+                    <li>Graphismes inspirés de l'art nouveau et des mouvements impressionnistes</li>
+                </ul>
+                <div class="project-gallery">
+                    <img src="https://example.com/images/rythme-nature-1.jpg" alt="Paysage musical de Rythme de la Nature" width="250" height="150">
+                    <img src="https://example.com/images/rythme-nature-2.jpg" alt="Interface de composition dans Rythme de la Nature" width="250" height="150">
+                    <img src="https://example.com/images/rythme-nature-3.jpg" alt="Créature musicale de Rythme de la Nature" width="250" height="150">
+                </div>
+            </div>
+        </section>
+
+        <section id="project-cyber-quest" class="page">
+            <h2>Cyber Quest</h2>
+            <img src="https://example.com/images/cyber-quest.jpg" alt="Image futuriste du jeu Cyber Quest" class="project-image" width="760" height="200">
+            <div class="project-details">
+                <p>Cyber Quest est un RPG cyberpunk ambitieux où les choix des joueurs façonnent non seulement l'histoire, mais aussi le gameplay et l'évolution de la ville futuriste de Neo-Tokyo. Plongez dans un monde où la technologie et l'humanité s'entrechoquent, et où vos décisions ont des conséquences durables.</p>
+                <h3>Caractéristiques principales :</h3>
+                <ul>
+                    <li>Système de choix complexe influençant l'histoire et le monde du jeu</li>
+                    <li>Customisation poussée du personnage, incluant des augmentations cybernétiques</li>
+                    <li>Ville ouverte et vivante réagissant aux actions du joueur</li>
+                    <li>Combats tactiques mêlant action en temps réel et planification stratégique</li>
+                </ul>
+                <div class="project-gallery">
+                    <img src="https://example.com/images/cyber-quest-1.jpg" alt="Vue de Neo-Tokyo dans Cyber Quest" width="250" height="150">
+                    <img src="https://example.com/images/cyber-quest-2.jpg" alt="Interface de customisation du personnage" width="250" height="150">
+                    <img src="https://example.com/images/cyber-quest-3.jpg" alt="Combat cybernétique dans Cyber Quest" width="250" height="150">
+                </div>
+            </div>
+        </section>
+
     </main>
     <footer>
         <p>&copy; 2023 Portfolio de Game Designer. Tous droits réservés.</p>
@@ -215,130 +277,32 @@
     document.addEventListener('DOMContentLoaded', (event) => {
         const mainContent = document.getElementById('main-content');
         const navLinks = document.querySelectorAll('.nav-link');
-        const projectDetails = document.getElementById('project-details');
 
-        function loadPage(pageId) {
+        function showPage(pageId) {
             const pages = document.querySelectorAll('.page');
             pages.forEach(page => page.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
 
             navLinks.forEach(link => link.classList.remove('active'));
-
-            if (pageId === 'home') {
-                document.getElementById('home').classList.add('active');
-                document.querySelector('a[data-page="home"]').classList.add('active');
-            } else if (pageId === 'projects') {
-                document.getElementById('projects').classList.add('active');
-                document.querySelector('a[data-page="projects"]').classList.add('active');
-            } else if (pageId.startsWith('project-')) {
-                projectDetails.classList.add('active');
-                document.querySelector('a[data-page="projects"]').classList.add('active');
-                loadProjectDetails(pageId.split('-')[1]);
+            const activeNavLink = document.querySelector(`a[data-page="${pageId}"]`);
+            if (activeNavLink) {
+                activeNavLink.classList.add('active');
             }
-        }
-
-        function loadProjectDetails(projectName) {
-            let content = '';
-
-            switch(projectName) {
-                case 'rythme-de-la-nature':
-                    content = `
-                        <h2>Rythme de la Nature</h2>
-                        <img src="https://example.com/images/rythme-de-la-nature.jpg" alt="Capture d'écran du jeu Rythme de la Nature" class="project-image" width="760" height="200">
-                        <div class="project-details">
-                            <p>Rythme de la Nature est un jeu de rythme et d'exploration unique où la musique et l'environnement sont intimement liés. Les joueurs parcourent un monde vibrant et dynamique, créant leur propre symphonie en interagissant avec les éléments qui les entourent.</p>
-                            <h3>Caractéristiques principales :</h3>
-                            <ul>
-                                <li>Système de jeu innovant mêlant rythme et exploration</li>
-                                <li>Environnements générés procéduralement réagissant à la musique</li>
-                                <li>Composition musicale interactive permettant aux joueurs de créer leurs propres mélodies</li>
-                                <li>Graphismes inspirés de l'art nouveau et des mouvements impressionnistes</li>
-                            </ul>
-                            <div class="project-gallery">
-                                <img src="https://example.com/images/rythme-nature-1.jpg" alt="Paysage musical de Rythme de la Nature" width="250" height="150">
-                                <img src="https://example.com/images/rythme-nature-2.jpg" alt="Interface de composition dans Rythme de la Nature" width="250" height="150">
-                                <img src="https://example.com/images/rythme-nature-3.jpg" alt="Créature musicale de Rythme de la Nature" width="250" height="150">
-                            </div>
-                        </div>
-                    `;
-                    break;
-                case 'cyber-quest':
-                    content = `
-                        <h2>Cyber Quest</h2>
-                        <img src="https://example.com/images/cyber-quest.jpg" alt="Image futuriste du jeu Cyber Quest" class="project-image" width="760" height="200">
-                        <div class="project-details">
-                            <p>Cyber Quest est un RPG cyberpunk ambitieux où les choix des joueurs façonnent non seulement l'histoire, mais aussi le gameplay et l'évolution de la ville futuriste de Neo-Tokyo. Plongez dans un monde où la technologie et l'humanité s'entrechoquent, et où vos décisions ont des conséquences durables.</p>
-                            <h3>Caractéristiques principales :</h3>
-                            <ul>
-                                <li>Système de choix complexe influençant l'histoire et le monde du jeu</li>
-                                <li>Customisation poussée du personnage, incluant des augmentations cybernétiques</li>
-                                <li>Ville ouverte et vivante réagissant aux actions du joueur</li>
-                                <li>Combats tactiques mêlant action en temps réel et planification stratégique</li>
-                            </ul>
-                            <div class="project-gallery">
-                                <img src="https://example.com/images/cyber-quest-1.jpg" alt="Vue de Neo-Tokyo dans Cyber Quest" width="250" height="150">
-                                <img src="https://example.com/images/cyber-quest-2.jpg" alt="Interface de customisation du personnage" width="250" height="150">
-                                <img src="https://example.com/images/cyber-quest-3.jpg" alt="Combat cybernétique dans Cyber Quest" width="250" height="150">
-                            </div>
-                        </div>
-                    `;
-                    break;
-                default:
-                    content = '<p>Détails du projet non disponibles.</p>';
-            }
-
-            projectDetails.innerHTML = content;
         }
 
         function handleClick(e) {
             if (e.target.tagName === 'A' && e.target.hasAttribute('data-page')) {
                 e.preventDefault();
                 const pageId = e.target.getAttribute('data-page');
-                loadPage(pageId);
+                showPage(pageId);
             }
         }
 
         mainContent.addEventListener('click', handleClick);
         document.querySelector('nav').addEventListener('click', handleClick);
 
-        loadPage('home');
-
-        function setupProjectCardAnimations() {
-            document.querySelectorAll('.project-card').forEach(card => {
-                card.addEventListener('mouseover', () => {
-                    card.style.transform = 'translateY(-10px)';
-                    card.style.boxShadow = '0 10px 20px rgba(187, 134, 252, 0.3)';
-                });
-                card.addEventListener('mouseout', () => {
-                    card.style.transform = 'translateY(0)';
-                    card.style.boxShadow = 'none';
-                });
-            });
-        }
-
-        function setupProfileImageParallax() {
-            const profileImage = document.querySelector('.profile-image');
-            if (profileImage) {
-                window.addEventListener('mousemove', (e) => {
-                    const moveX = (e.clientX - window.innerWidth / 2) * 0.01;
-                    const moveY = (e.clientY - window.innerHeight / 2) * 0.01;
-                    profileImage.style.transform = `translate(${moveX}px, ${moveY}px)`;
-                });
-            }
-        }
-
-        setupProjectCardAnimations();
-        setupProfileImageParallax();
-
-        const observer = new MutationObserver((mutations) => {
-            mutations.forEach((mutation) => {
-                if (mutation.type === 'childList') {
-                    setupProjectCardAnimations();
-                    setupProfileImageParallax();
-                }
-            });
-        });
-
-        observer.observe(document.getElementById('main-content'), { childList: true, subtree: true });
+        // Initial page load
+        showPage('home');
     });
     </script>
 </body>
