@@ -1,7 +1,7 @@
-<html><head><base href="https://example.com/projets/rythme-de-la-nature">
+<html><head><base href="https://example.com/">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rythme de la Nature - Portfolio de Game Designer</title>
+<title>Portfolio de Game Designer</title>
 <style>
     body, html {
         margin: 0;
@@ -28,7 +28,7 @@
         font-weight: bold;
         transition: color 0.3s ease;
     }
-    nav a:hover {
+    nav a:hover, nav a.active {
         color: #bb86fc;
     }
     main {
@@ -39,47 +39,50 @@
     h1, h2 {
         color: #bb86fc;
     }
-    .project-details {
+    .profile {
+        display: flex;
+        align-items: center;
+        margin-bottom: 30px;
+    }
+    .profile-image {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-right: 30px;
+    }
+    .skills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 20px;
+    }
+    .skill {
+        background-color: #2a2a2a;
+        padding: 5px 10px;
+        border-radius: 15px;
+        font-size: 0.9em;
+    }
+    .projects-preview, .projects-list {
+        margin-top: 40px;
+    }
+    .project-card {
         background-color: #1e1e1e;
         border-radius: 8px;
         padding: 20px;
         margin-bottom: 20px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .project-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(187, 134, 252, 0.3);
     }
     .project-image {
         width: 100%;
-        height: auto;
+        height: 200px;
+        object-fit: cover;
         border-radius: 8px;
-        margin-bottom: 20px;
-    }
-    .feature-list {
-        list-style-type: none;
-        padding: 0;
-    }
-    .feature-list li {
-        margin-bottom: 10px;
-        padding-left: 25px;
-        position: relative;
-    }
-    .feature-list li::before {
-        content: '🎵';
-        position: absolute;
-        left: 0;
-        top: 0;
-    }
-    .video-container {
-        position: relative;
-        width: 100%;
-        padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-        margin-bottom: 20px;
-    }
-    .video-container iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border: none;
-        border-radius: 8px;
+        margin-bottom: 15px;
     }
     footer {
         text-align: center;
@@ -87,178 +90,256 @@
         background-color: #1a1a1a;
         margin-top: 40px;
     }
-    .interactive-demo {
-        background-color: #2a2a2a;
+    .cta-button {
+        display: inline-block;
+        background-color: #bb86fc;
+        color: #121212;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: bold;
+        margin-top: 20px;
+        transition: background-color 0.3s ease;
+    }
+    .cta-button:hover {
+        background-color: #03dac6;
+    }
+    .page {
+        display: none;
+    }
+    .page.active {
+        display: block;
+    }
+    .project-details {
+        background-color: #1e1e1e;
         border-radius: 8px;
         padding: 20px;
         margin-top: 20px;
-        text-align: center;
     }
-    .demo-button {
-        background-color: #bb86fc;
-        color: #121212;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 5px;
-        font-weight: bold;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    }
-    .demo-button:hover {
-        background-color: #03dac6;
-    }
-    #demo-canvas {
-        width: 100%;
-        height: 200px;
-        background-color: #1e1e1e;
-        border-radius: 8px;
+    .project-gallery {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
         margin-top: 20px;
+    }
+    .project-gallery img {
+        width: calc(33.33% - 10px);
+        height: 150px;
+        object-fit: cover;
+        border-radius: 4px;
     }
 </style>
 </head>
 <body>
     <header>
-        <h1>Rythme de la Nature</h1>
+        <h1>Portfolio de Game Designer</h1>
     </header>
     <nav>
-        <a href="https://example.com/">Accueil</a>
-        <a href="https://example.com/projets">Projets</a>
-        <a href="https://example.com/projets/rythme-de-la-nature">Rythme de la Nature</a>
+        <a href="#" data-page="home" class="nav-link active">Accueil</a>
+        <a href="#" data-page="projects" class="nav-link">Projets</a>
     </nav>
-    <main>
-        <div class="project-details">
-            <img class="project-image" src="https://example.com/images/rythme-de-la-nature-banner.jpg" alt="Bannière du jeu Rythme de la Nature montrant un paysage luxuriant réagissant à la musique" width="800" height="400">
-            <h2>À propos du projet</h2>
-            <p>Rythme de la Nature est un jeu de rythme et d'exploration unique où la musique influence directement l'environnement. En tant que game designer, j'ai créé un monde où chaque action du joueur contribue à une symphonie interactive, transformant le paysage et révélant de nouveaux secrets.</p>
-            
-            <h3>Caractéristiques principales</h3>
-            <ul class="feature-list">
-                <li>Système de génération musicale procédurale qui crée une bande-son unique à chaque partie</li>
-                <li>Environnement dynamique réagissant en temps réel aux inputs musicaux des joueurs</li>
-                <li>Mécaniques de jeu basées sur le rythme, encourageant les joueurs à "jouer" avec le monde</li>
-                <li>Design sonore immersif utilisant des sons naturels pour créer une expérience auditive riche</li>
-                <li>Progression basée sur la découverte, où de nouvelles zones sont débloquées par l'harmonie musicale</li>
-            </ul>
-
-            <h3>Vidéo de gameplay</h3>
-            <div class="video-container">
-                <iframe src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <main id="main-content">
+        <section id="home" class="page active">
+            <div class="profile">
+                <img src="https://example.com/images/profile.jpg" alt="Portrait du game designer, souriant et confiant" class="profile-image" width="200" height="200">
+                <div>
+                    <h2>Bienvenue sur mon portfolio</h2>
+                    <p>Je suis un game designer passionné avec plus de 5 ans d'expérience dans la création d'expériences de jeu innovantes et captivantes. Mon approche combine créativité, analyse des données et compréhension approfondie des joueurs pour concevoir des jeux qui inspirent et divertissent.</p>
+                    <div class="skills">
+                        <span class="skill">Game Design</span>
+                        <span class="skill">Level Design</span>
+                        <span class="skill">Systèmes de Progression</span>
+                        <span class="skill">Narration Interactive</span>
+                        <span class="skill">Prototypage</span>
+                        <span class="skill">Analyse de Données</span>
+                    </div>
+                </div>
             </div>
 
-            <h3>Défis de conception</h3>
-            <p>L'un des plus grands défis dans la conception de Rythme de la Nature était de créer un système qui soit à la fois musicalement cohérent et réactif aux actions du joueur. Nous avons développé un algorithme de composition dynamique qui ajuste constamment la musique en fonction des mouvements et des interactions du joueur, tout en maintenant une structure musicale agréable.</p>
+            <section class="projects-preview">
+                <h2>Projets Récents</h2>
+                <div class="project-card">
+                    <img src="https://example.com/images/rythme-de-la-nature.jpg" alt="Capture d'écran du jeu Rythme de la Nature montrant un paysage vibrant et musical" class="project-image" width="760" height="200">
+                    <h3>Rythme de la Nature</h3>
+                    <p>Un jeu de rythme et d'exploration où la musique façonne l'environnement. Les joueurs créent leur propre symphonie en interagissant avec le monde qui les entoure.</p>
+                    <a href="#" data-page="project-rythme-de-la-nature" class="cta-button">En savoir plus</a>
+                </div>
+                <div class="project-card">
+                    <img src="https://example.com/images/cyber-quest.jpg" alt="Image futuriste du jeu Cyber Quest avec des néons et des gratte-ciels" class="project-image" width="760" height="200">
+                    <h3>Cyber Quest</h3>
+                    <p>Un RPG cyberpunk où les choix des joueurs influencent profondément l'histoire et le gameplay. Explorez une ville futuriste et découvrez ses secrets.</p>
+                    <a href="#" data-page="project-cyber-quest" class="cta-button">En savoir plus</a>
+                </div>
+            </section>
 
-            <p>Un autre défi était de concevoir des puzzles et des zones d'exploration qui soient intrinsèquement liés à la musique, sans pour autant aliéner les joueurs qui pourraient avoir moins d'expérience musicale. Nous avons résolu ce problème en créant un système de feedback visuel intuitif qui guide subtilement les joueurs vers les bonnes notes et rythmes.</p>
+            <section>
+                <h2>Ma Philosophie de Design</h2>
+                <p>Je crois en la création de jeux qui ne se contentent pas de divertir, mais qui inspirent, éduquent et connectent les gens. Chaque projet est une opportunité d'explorer de nouvelles idées et de repousser les limites de ce qui est possible dans le monde du jeu vidéo.</p>
+                <a href="#" data-page="projects" class="cta-button">Voir tous mes projets</a>
+            </section>
+        </section>
 
-            <h3>Impact et réception</h3>
-            <p>Depuis son lancement, Rythme de la Nature a reçu des critiques élogieuses pour son approche innovante du genre des jeux musicaux. Il a été nominé pour plusieurs prix d'innovation en game design et a été salué pour son accessibilité et sa capacité à créer une expérience méditative et apaisante.</p>
-
-            <div class="interactive-demo">
-                <h3>Démo interactive</h3>
-                <p>Essayez une version simplifiée du système musical de Rythme de la Nature :</p>
-                <button id="play-demo" class="demo-button">Jouer la démo</button>
-                <canvas id="demo-canvas"></canvas>
+        <section id="projects" class="page">
+            <h2>Mes Projets</h2>
+            <div class="projects-list">
+                <div class="project-card">
+                    <img src="https://example.com/images/rythme-de-la-nature.jpg" alt="Capture d'écran du jeu Rythme de la Nature montrant un paysage vibrant et musical" class="project-image" width="760" height="200">
+                    <h3>Rythme de la Nature</h3>
+                    <p>Un jeu de rythme et d'exploration où la musique façonne l'environnement.</p>
+                    <a href="#" data-page="project-rythme-de-la-nature" class="cta-button">En savoir plus</a>
+                </div>
+                <div class="project-card">
+                    <img src="https://example.com/images/cyber-quest.jpg" alt="Image futuriste du jeu Cyber Quest avec des néons et des gratte-ciels" class="project-image" width="760" height="200">
+                    <h3>Cyber Quest</h3>
+                    <p>Un RPG cyberpunk où les choix des joueurs influencent profondément l'histoire et le gameplay.</p>
+                    <a href="#" data-page="project-cyber-quest" class="cta-button">En savoir plus</a>
+                </div>
+                <div class="project-card">
+                    <img src="https://example.com/images/eco-warriors.jpg" alt="Illustration colorée du jeu Eco Warriors avec des personnages et des éléments naturels" class="project-image" width="760" height="200">
+                    <h3>Eco Warriors</h3>
+                    <p>Un jeu éducatif sur l'écologie et la protection de l'environnement.</p>
+                    <a href="#" data-page="project-eco-warriors" class="cta-button">En savoir plus</a>
+                </div>
             </div>
-        </div>
+        </section>
+
+        <section id="project-details" class="page">
+            <!-- Le contenu sera chargé dynamiquement ici -->
+        </section>
     </main>
     <footer>
         <p>&copy; 2023 Portfolio de Game Designer. Tous droits réservés.</p>
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.26/Tone.js"></script>
     <script>
-        const playButton = document.getElementById('play-demo');
-        const canvas = document.getElementById('demo-canvas');
-        const ctx = canvas.getContext('2d');
+    document.addEventListener('DOMContentLoaded', (event) => {
+        const mainContent = document.getElementById('main-content');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const projectDetails = document.getElementById('project-details');
 
-        let isPlaying = false;
-        let synth;
-        let particles = [];
+        function loadPage(pageId) {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
 
-        function setupAudio() {
-            synth = new Tone.PolySynth(Tone.Synth).toDestination();
-            Tone.Transport.bpm.value = 120;
+            navLinks.forEach(link => link.classList.remove('active'));
+
+            if (pageId === 'home') {
+                document.getElementById('home').classList.add('active');
+                document.querySelector('a[data-page="home"]').classList.add('active');
+            } else if (pageId === 'projects') {
+                document.getElementById('projects').classList.add('active');
+                document.querySelector('a[data-page="projects"]').classList.add('active');
+            } else if (pageId.startsWith('project-')) {
+                projectDetails.classList.add('active');
+                document.querySelector('a[data-page="projects"]').classList.add('active');
+                loadProjectDetails(pageId.split('-')[1]);
+            }
         }
 
-        function playNote(note) {
-            synth.triggerAttackRelease(note, "8n");
-            createParticle(note);
+        function loadProjectDetails(projectName) {
+            let content = '';
+
+            switch(projectName) {
+                case 'rythme-de-la-nature':
+                    content = `
+                        <h2>Rythme de la Nature</h2>
+                        <img src="https://example.com/images/rythme-de-la-nature.jpg" alt="Capture d'écran du jeu Rythme de la Nature" class="project-image" width="760" height="200">
+                        <div class="project-details">
+                            <p>Rythme de la Nature est un jeu de rythme et d'exploration unique où la musique et l'environnement sont intimement liés. Les joueurs parcourent un monde vibrant et dynamique, créant leur propre symphonie en interagissant avec les éléments qui les entourent.</p>
+                            <h3>Caractéristiques principales :</h3>
+                            <ul>
+                                <li>Système de jeu innovant mêlant rythme et exploration</li>
+                                <li>Environnements générés procéduralement réagissant à la musique</li>
+                                <li>Composition musicale interactive permettant aux joueurs de créer leurs propres mélodies</li>
+                                <li>Graphismes inspirés de l'art nouveau et des mouvements impressionnistes</li>
+                            </ul>
+                            <div class="project-gallery">
+                                <img src="https://example.com/images/rythme-nature-1.jpg" alt="Paysage musical de Rythme de la Nature" width="250" height="150">
+                                <img src="https://example.com/images/rythme-nature-2.jpg" alt="Interface de composition dans Rythme de la Nature" width="250" height="150">
+                                <img src="https://example.com/images/rythme-nature-3.jpg" alt="Créature musicale de Rythme de la Nature" width="250" height="150">
+                            </div>
+                        </div>
+                    `;
+                    break;
+                case 'cyber-quest':
+                    content = `
+                        <h2>Cyber Quest</h2>
+                        <img src="https://example.com/images/cyber-quest.jpg" alt="Image futuriste du jeu Cyber Quest" class="project-image" width="760" height="200">
+                        <div class="project-details">
+                            <p>Cyber Quest est un RPG cyberpunk ambitieux où les choix des joueurs façonnent non seulement l'histoire, mais aussi le gameplay et l'évolution de la ville futuriste de Neo-Tokyo. Plongez dans un monde où la technologie et l'humanité s'entrechoquent, et où vos décisions ont des conséquences durables.</p>
+                            <h3>Caractéristiques principales :</h3>
+                            <ul>
+                                <li>Système de choix complexe influençant l'histoire et le monde du jeu</li>
+                                <li>Customisation poussée du personnage, incluant des augmentations cybernétiques</li>
+                                <li>Ville ouverte et vivante réagissant aux actions du joueur</li>
+                                <li>Combats tactiques mêlant action en temps réel et planification stratégique</li>
+                            </ul>
+                            <div class="project-gallery">
+                                <img src="https://example.com/images/cyber-quest-1.jpg" alt="Vue de Neo-Tokyo dans Cyber Quest" width="250" height="150">
+                                <img src="https://example.com/images/cyber-quest-2.jpg" alt="Interface de customisation du personnage" width="250" height="150">
+                                <img src="https://example.com/images/cyber-quest-3.jpg" alt="Combat cybernétique dans Cyber Quest" width="250" height="150">
+                            </div>
+                        </div>
+                    `;
+                    break;
+                default:
+                    content = '<p>Détails du projet non disponibles.</p>';
+            }
+
+            projectDetails.innerHTML = content;
         }
 
-        function createParticle(note) {
-            const hue = Tone.Frequency(note).toMidi() % 12 * 30;
-            particles.push({
-                x: Math.random() * canvas.width,
-                y: canvas.height,
-                radius: Math.random() * 20 + 10,
-                color: `hsl(${hue}, 100%, 50%)`,
-                velocity: Math.random() * 2 + 1
+        function handleClick(e) {
+            if (e.target.tagName === 'A' && e.target.hasAttribute('data-page')) {
+                e.preventDefault();
+                const pageId = e.target.getAttribute('data-page');
+                loadPage(pageId);
+            }
+        }
+
+        mainContent.addEventListener('click', handleClick);
+        document.querySelector('nav').addEventListener('click', handleClick);
+
+        loadPage('home');
+
+        function setupProjectCardAnimations() {
+            document.querySelectorAll('.project-card').forEach(card => {
+                card.addEventListener('mouseover', () => {
+                    card.style.transform = 'translateY(-10px)';
+                    card.style.boxShadow = '0 10px 20px rgba(187, 134, 252, 0.3)';
+                });
+                card.addEventListener('mouseout', () => {
+                    card.style.transform = 'translateY(0)';
+                    card.style.boxShadow = 'none';
+                });
             });
         }
 
-        function animateParticles() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            particles.forEach((particle, index) => {
-                particle.y -= particle.velocity;
-                particle.radius *= 0.99;
+        function setupProfileImageParallax() {
+            const profileImage = document.querySelector('.profile-image');
+            if (profileImage) {
+                window.addEventListener('mousemove', (e) => {
+                    const moveX = (e.clientX - window.innerWidth / 2) * 0.01;
+                    const moveY = (e.clientY - window.innerHeight / 2) * 0.01;
+                    profileImage.style.transform = `translate(${moveX}px, ${moveY}px)`;
+                });
+            }
+        }
 
-                ctx.beginPath();
-                ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
-                ctx.fillStyle = particle.color;
-                ctx.fill();
+        setupProjectCardAnimations();
+        setupProfileImageParallax();
 
-                if (particle.radius < 0.5) {
-                    particles.splice(index, 1);
+        const observer = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+                if (mutation.type === 'childList') {
+                    setupProjectCardAnimations();
+                    setupProfileImageParallax();
                 }
             });
-
-            if (isPlaying) {
-                requestAnimationFrame(animateParticles);
-            }
-        }
-
-        function startDemo() {
-            if (isPlaying) return;
-            isPlaying = true;
-            Tone.start();
-            setupAudio();
-
-            const notes = ['C4', 'E4', 'G4', 'B4', 'D5'];
-            let index = 0;
-
-            Tone.Transport.scheduleRepeat((time) => {
-                playNote(notes[index]);
-                index = (index + 1) % notes.length;
-            }, "4n");
-
-            Tone.Transport.start();
-            animateParticles();
-        }
-
-        function stopDemo() {
-            isPlaying = false;
-            Tone.Transport.stop();
-            synth.releaseAll();
-        }
-
-        playButton.addEventListener('click', () => {
-            if (!isPlaying) {
-                startDemo();
-                playButton.textContent = 'Arrêter la démo';
-            } else {
-                stopDemo();
-                playButton.textContent = 'Jouer la démo';
-            }
         });
 
-        // Set canvas size
-        function resizeCanvas() {
-            canvas.width = canvas.clientWidth;
-            canvas.height = canvas.clientHeight;
-        }
-
-        window.addEventListener('resize', resizeCanvas);
-        resizeCanvas();
+        observer.observe(document.getElementById('main-content'), { childList: true, subtree: true });
+    });
     </script>
 </body>
 </html>
